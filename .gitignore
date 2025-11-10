@@ -1,0 +1,13 @@
+# Python virtual environments
+.venv/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# Local environment variables
+.env
+.env.*
+
+# macOS metadata
+.DS_Store

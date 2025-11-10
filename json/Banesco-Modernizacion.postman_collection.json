@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "76a98c74-4112-4740-a53e-467e98d0ca50",
+		"name": "Banesco-Modernizacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43545486",
+		"_collection_link": "https://s55555-6798.postman.co/workspace/WS-Okta-Banesco~63afccb2-dc34-4b08-be57-e30f581cbe48/collection/43545486-76a98c74-4112-4740-a53e-467e98d0ca50?action=share&source=collection_link&creator=43545486"
+	},
+	"item": [
+		{
+			"name": "token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "HwLaxYT94JDUT_FtmXLC5g..",
+						"username": "TQxrfav-piIW3sS3EWibfQ.."
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "grant_type=client_credentials",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://129.80.151.82:8081/Banesco/integracion/oauth/token"
+			},
+			"response": []
+		},
+		{
+			"name": "desactivar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "L0Xg9RT_Ny8MchZRFb0xpg"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_usuario\":\"CCISNEROS@INFOSGROUP.COM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://129.80.151.82:8081/Banesco/integracion/api/v1/usuarios/desactivar"
+			},
+			"response": []
+		},
+		{
+			"name": "activar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "L0Xg9RT_Ny8MchZRFb0xpg"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_usuario\":\"CCISNEROS@INFOSGROUP.COM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://129.80.151.82:8081/Banesco/integracion/api/v1/usuarios/activar"
+			},
+			"response": []
+		}
+	]
+}
