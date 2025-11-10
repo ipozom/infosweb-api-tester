@@ -10,14 +10,18 @@ Automatically activate or deactivate Okta user accounts when the profile contain
 
 ## Files
 
-- `workflow.flopack` – Import this file into Okta Workflows.
-- `workflow.json` – Metadata describing the flows, connectors, and hash of the flopack.
+- `workflow.flopack` – Original Okta-centric scheduled flows for activating/deactivating users by profile date.
+- `workflow_infosweb.flopack` – New helper-only pack that calls Infosweb OAuth/token, activate, and deactivate endpoints through the HTTP connector.
+- `workflow.json` – Metadata describing the flows, connectors, and hash of the original flopack.
 - `README.md` – This guide.
 - `json/Banesco-Modernizacion.postman_collection.json` – Reference Postman collection illustrating the Infosweb token and activate/deactivate endpoints.
+- `docs/infosweb-flopack-process.md` – Step-by-step build and troubleshooting notes for the Infosweb helper flopacks.
 - `src/infosweb_client.py` – Python helper that wraps the Infosweb API for local testing or automation.
 - `requirements.txt` – Python dependencies for the helper CLI.
 
 ## Flow summary
+
+### Okta profile-date workflow (`workflow.flopack`)
 
 | Flow | Type | Purpose |
 | --- | --- | --- |
@@ -26,7 +30,17 @@ Automatically activate or deactivate Okta user accounts when the profile contain
 | `2A Find users to deactivate by profile date` | Scheduled | Searches for active users whose `account_deactivation_date` equals today, then invokes the helper to deactivate them. |
 | `2B Deactivate account helper` | Helper | Deactivates a user in Okta using the supplied ID or login and returns the response status. |
 
+### Infosweb HTTP helpers (`workflow_infosweb.flopack`)
+
+| Flow | Type | Purpose |
+| --- | --- | --- |
+| `Infosweb request token` | Helper | Calls `POST /Banesco/integracion/oauth/token` (grant type `client_credentials`) and returns the token payload. |
+| `Infosweb activate user` | Helper | Calls `POST /Banesco/integracion/api/v1/usuarios/activar` with `nombre_usuario` in the JSON body and returns the HTTP response. |
+| `Infosweb deactivate user` | Helper | Calls `POST /Banesco/integracion/api/v1/usuarios/desactivar` with `nombre_usuario` in the JSON body and returns the HTTP response. |
+
 ## Import and configuration
+
+### Okta pack (`workflow.flopack`)
 
 1. Download `workflow.flopack` and import it into Okta Workflows.
 2. Reassign the Okta connection on each flow (activate and deactivate helper flows plus both scheduled flows) to a valid connection in your tenant.
@@ -34,7 +48,19 @@ Automatically activate or deactivate Okta user accounts when the profile contain
 4. Ensure every user you expect to process has the `account_activation_date` and/or `account_deactivation_date` profile attributes populated in `MM/DD/YYYY` format.
 5. (Optional) Update the `Send Email?` input on the Okta Activate/Deactivate cards if you want Okta to send user notifications.
 
+### Infosweb helpers (`workflow_infosweb.flopack`)
+
+1. Import `workflow_infosweb.flopack` into Okta Workflows. The flows will appear inside the *Infosweb API helpers* folder.
+2. Create or select an **HTTP** connection, then configure it with the Infosweb base URL (for example `https://<hostname>`). All three flows share the connection named **Infosweb HTTP**.
+3. Edit the **Custom API Action** cards in each flow to supply the correct headers:
+	- For the token flow, set `Authorization` to `Basic <base64(client_id:client_secret)>` and keep `Content-Type: application/json`.
+	- For activate/deactivate, set `Authorization` to `Bearer {{Access Token}}`. If you call the token helper first, bring the token into the downstream flow via the returned body.
+4. Update the request body template if your environment needs additional attributes besides `nombre_usuario`.
+5. Test each helper by running it with sample inputs. The flows return the HTTP status code and parsed JSON body to the caller.
+
 ## Procedure followed
+
+### Okta pack refresh
 
 The current `workflow.flopack` was produced and validated with the following steps to confirm Okta Workflows implementation feasibility:
 
@@ -46,11 +72,25 @@ The current `workflow.flopack` was produced and validated with the following ste
 
 Result: the import completed successfully on 10 Nov 2025, demonstrating that flopack generation plus subsequent import into Okta Workflows is feasible for this scenario.
 
+### Infosweb helper pack generation
+
+To create the Infosweb-only helper pack without altering the Okta flows, the following scripted process was executed on 10 Nov 2025:
+
+1. Parsed the Postman collection to confirm request structure (paths, headers, form body).
+2. Authored a Python generator that serializes three helper flows (`Infosweb request token`, `Infosweb activate user`, `Infosweb deactivate user`) with unique UUIDs and a shared HTTP connection placeholder.
+3. Ran the generator inside the project virtual environment, producing `workflow_infosweb.flopack` alongside the original packs.
+4. Inspected the generated flopack to verify each flow contains a callable entry, descriptive comment, HTTP custom request card, and return block exposing `Status Code` and `Body` outputs.
+
+Result: the new pack can be imported independently, letting downstream flows swap from Okta-specific actions to Infosweb HTTP calls while keeping the original automation intact for reference.
+
 ### Validation checklist
 
 - Run `sha512sum workflow.flopack` and confirm the output matches `2b8b6aea062fd164322b53189a12c89a1cfc9f031c9a5a80f172f36b783b2df143dd9b721e3ef35962c610715c7e727ca610519addd3cd82cf2c6df589eef3c4`.
-- After import, reassign the Okta connector and execute each helper flow once to confirm activation/deactivation succeed without errors.
+- Import `workflow_infosweb.flopack` and wire the **HTTP** connection before attempting to run the helpers.
+- After import, reassign the Okta connector (for the original pack) and execute each helper flow once to confirm activation/deactivation succeed without errors.
 - Review Flow History to ensure scheduled runs complete without missing inputs.
+
+For Infosweb-only implementations, run the three helper flows in sequence (token → activate/deactivate) to verify the HTTP responses mirror the Postman collection outputs.
 
 ## Infosweb API helper
 

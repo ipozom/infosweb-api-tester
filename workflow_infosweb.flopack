@@ -1,0 +1,3464 @@
+{
+  "type": "flopack",
+  "version": "1.5.0",
+  "created": "2025-11-10T08:39:17.369027Z",
+  "flags": {
+    "auto-transform": true,
+    "looseBooleans": true,
+    "looseStrings": true,
+    "looseNulls": true
+  },
+  "data": {
+    "flos": {
+      "cffb140f-042f-46ab-bcfa-bae5cedda703": {
+        "id": "cffb140f-042f-46ab-bcfa-bae5cedda703",
+        "name": "Infosweb request token",
+        "description": "POST /Banesco/integracion/oauth/token with grant_type=client_credentials.",
+        "data": {
+          "id": null,
+          "uuid": "cffb140f-042f-46ab-bcfa-bae5cedda703",
+          "display": {
+            "preview": [
+              {
+                "module": "control",
+                "name": "callable",
+                "kernel": true
+              },
+              {
+                "module": "httpfunctions",
+                "name": "raw",
+                "kernel": false
+              },
+              {
+                "module": "control",
+                "name": "return",
+                "kernel": true
+              },
+              {
+                "module": "control",
+                "name": "comment",
+                "kernel": true
+              }
+            ],
+            "eventConnecterName": "Helper Flow",
+            "isCallable": true,
+            "isPublishable": false
+          },
+          "tree": {
+            "id": 3,
+            "name": "empty",
+            "description": "This flow has been build w/o a tree and uses the newer, async, Addressing module."
+          },
+          "methods": [
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:callable",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "5a0fb56d3f2a4812a116e26a79cf562f",
+              "branches": {},
+              "node": {
+                "key": "callable",
+                "data": {
+                  "name": "Helper Flow"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "callable",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": true,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 30000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Helper Flow",
+                    "description": "Start a Flow that executes on-demand, i.e. called by another Flow or via the Invoke API."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "groupRules": {
+                      "body": {
+                        "type": "object",
+                        "reserved": {},
+                        "extensible": true
+                      },
+                      "headers": {
+                        "type": "object",
+                        "reserved": {
+                          "Content-Type": "string"
+                        },
+                        "extensible": true
+                      },
+                      "query": {
+                        "type": "object",
+                        "reserved": {},
+                        "extensible": true
+                      }
+                    },
+                    "data": {
+                      "OOG6lzGVq7": {
+                        "id": "OOG6lzGVq7",
+                        "group": "context",
+                        "key": "index",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Index",
+                          "index": 0
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "6Oji6L8SWA": {
+                        "id": "6Oji6L8SWA",
+                        "group": "context",
+                        "key": "parent",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "id": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "name": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "execution_id": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Caller",
+                          "collapsed": true,
+                          "index": 1
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "edSqYLosxg": {
+                        "id": "edSqYLosxg",
+                        "group": "context",
+                        "key": "error",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "message": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "flo": {
+                              "type": "number",
+                              "collection": false
+                            },
+                            "execution": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Error",
+                          "collapsed": true,
+                          "index": 2
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "QvcNsoJRE1": {
+                        "id": "QvcNsoJRE1",
+                        "group": "context",
+                        "key": "execution_id",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Execution ID",
+                          "index": 3
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "eaf31c2927": {
+                        "id": "eaf31c2927",
+                        "group": null,
+                        "key": "Authorization",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "custom": true,
+                          "description": "Set to 'Basic <base64(client_id:client_secret)>'"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      },
+                      "780cbce68b": {
+                        "id": "780cbce68b",
+                        "group": null,
+                        "key": "Base URL",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 5,
+                          "custom": true,
+                          "description": "Root Infosweb endpoint, e.g. https://api.example.com"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "fiurZDJ7uP": {
+                        "id": "fiurZDJ7uP",
+                        "group": "context",
+                        "key": "index",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Index",
+                          "index": 0
+                        }
+                      },
+                      "tmrF3b_ygz": {
+                        "id": "tmrF3b_ygz",
+                        "group": "context",
+                        "key": "parent",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "id": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "name": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "execution_id": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Caller",
+                          "collapsed": true,
+                          "index": 1
+                        }
+                      },
+                      "C0qNbq7B73": {
+                        "id": "C0qNbq7B73",
+                        "group": "context",
+                        "key": "error",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "message": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "flo": {
+                              "type": "number",
+                              "collection": false
+                            },
+                            "execution": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Error",
+                          "collapsed": true,
+                          "index": 2
+                        }
+                      },
+                      "-zDZqtxL0u": {
+                        "id": "-zDZqtxL0u",
+                        "group": "context",
+                        "key": "execution_id",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Execution ID",
+                          "index": 3
+                        }
+                      },
+                      "c7f8fba1a6": {
+                        "id": "c7f8fba1a6",
+                        "group": null,
+                        "key": "Authorization",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "custom": true
+                        },
+                        "_used": true
+                      }
+                    },
+                    "groupRules": {
+                      "context": {
+                        "extensible": false
+                      }
+                    }
+                  },
+                  "runtime": {}
+                }
+              },
+              "pins": {}
+            },
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:comment",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "e30b0c278d2e49b8834025c32aa61631",
+              "branches": {},
+              "node": {
+                "key": "comment",
+                "data": {
+                  "name": "Comment"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "comment",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": false,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 90000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Comment",
+                    "description": "Leave a comment."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": false,
+                    "data": {}
+                  },
+                  "outputs": {
+                    "extensible": false,
+                    "data": {}
+                  },
+                  "runtime": {},
+                  "display": {},
+                  "comments": {
+                    "title": "Infosweb request token",
+                    "markdown": "POST /Banesco/integracion/oauth/token with grant_type=client_credentials."
+                  }
+                }
+              },
+              "pins": {}
+            },
+            {
+              "joins": {},
+              "address": "root:channels:http:httpfunctions:1.0.24:raw",
+              "parents": {
+                "version": {
+                  "address": "root:channels:http:httpfunctions:1.0.24",
+                  "key": "1.0.24",
+                  "data": {
+                    "name": "1.0.24",
+                    "id": 184
+                  }
+                },
+                "channel": {
+                  "address": "root:channels:http:httpfunctions",
+                  "key": "httpfunctions",
+                  "data": {
+                    "name": "httpfunctions",
+                    "id": 72
+                  }
+                }
+              },
+              "uuid": "32984208b5694324a71384845e7b47cf",
+              "branches": {},
+              "node": {
+                "key": "raw",
+                "data": {
+                  "name": "Raw Request"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "raw",
+                  "executable": true,
+                  "displayed": true,
+                  "async": true,
+                  "cooperative": false,
+                  "mirrored": false,
+                  "compat": false,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 30000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish",
+                      "delay": 120000,
+                      "retry": 3
+                    }
+                  },
+                  "metadata": {
+                    "id": 9515,
+                    "name": "Raw Request",
+                    "description": "POST /Banesco/integracion/oauth/token with grant_type=client_credentials."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": 65,
+                  "inputs": {
+                    "extensible": false,
+                    "rules": {},
+                    "groupRules": {
+                      "Request": {
+                        "extensible": false,
+                        "reserved": {},
+                        "index": 0,
+                        "type": "object"
+                      }
+                    },
+                    "data": {
+                      "46a0dacccc": {
+                        "id": "46a0dacccc",
+                        "group": "Request",
+                        "key": "URL",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "{{Base URL}}/Banesco/integracion/oauth/token",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "optional": false
+                        },
+                        "flags": "d"
+                      },
+                      "cb685c30cb": {
+                        "id": "cb685c30cb",
+                        "group": "Request",
+                        "key": "Method",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "POST",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "optional": false,
+                          "type": "list",
+                          "choices": [
+                            {
+                              "label": "GET",
+                              "value": "GET"
+                            },
+                            {
+                              "label": "POST",
+                              "value": "POST"
+                            },
+                            {
+                              "label": "PUT",
+                              "value": "PUT"
+                            },
+                            {
+                              "label": "PATCH",
+                              "value": "PATCH"
+                            },
+                            {
+                              "label": "DELETE",
+                              "value": "DELETE"
+                            }
+                          ]
+                        },
+                        "flags": "d"
+                      },
+                      "1d447e79db": {
+                        "id": "1d447e79db",
+                        "group": "Request",
+                        "key": "Query",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "object",
+                          "collection": false,
+                          "data": {},
+                          "available": [
+                            "string",
+                            "object"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 2,
+                          "optional": false
+                        },
+                        "flags": "d"
+                      },
+                      "da76c03d39": {
+                        "id": "da76c03d39",
+                        "group": "Request",
+                        "key": "Headers",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": {
+                            "Authorization": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "Content-Type": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": {
+                            "Authorization": "{{Authorization}}",
+                            "Content-Type": "application/x-www-form-urlencoded"
+                          },
+                          "available": [
+                            "object"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 3,
+                          "optional": false,
+                          "displayname": "Headers"
+                        },
+                        "flags": "d"
+                      },
+                      "cc20f22c9e": {
+                        "id": "cc20f22c9e",
+                        "group": "Request",
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "grant_type=client_credentials",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "optional": false,
+                          "displayname": "Body"
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": false,
+                    "rules": {},
+                    "groupRules": {
+                      "Response": {
+                        "extensible": false,
+                        "reserved": {},
+                        "index": 0,
+                        "type": "object"
+                      }
+                    },
+                    "data": {
+                      "c1a3fa5f63": {
+                        "id": "c1a3fa5f63",
+                        "group": "Response",
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "number"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Status Code",
+                          "index": 0
+                        }
+                      },
+                      "85ad9247e9": {
+                        "id": "85ad9247e9",
+                        "group": "Response",
+                        "key": "Headers",
+                        "value": {
+                          "error": false,
+                          "type": "object",
+                          "collection": false,
+                          "data": {},
+                          "available": [
+                            "object"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Headers",
+                          "index": 1
+                        }
+                      },
+                      "9b92a6ad3d": {
+                        "id": "9b92a6ad3d",
+                        "group": "Response",
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Body",
+                          "index": 2
+                        }
+                      }
+                    }
+                  },
+                  "runtime": {},
+                  "display": {},
+                  "comments": "POST /Banesco/integracion/oauth/token with grant_type=client_credentials.",
+                  "enableNewMetadata": true
+                },
+                "display": {},
+                "comments": "POST /Banesco/integracion/oauth/token with grant_type=client_credentials."
+              },
+              "pins": {
+                "c1a3fa5f63": {
+                  "40c02762ac85456ab4388ce9fe90820c": [
+                    {
+                      "input": "03dca17e86",
+                      "transform": null
+                    }
+                  ]
+                },
+                "9b92a6ad3d": {
+                  "40c02762ac85456ab4388ce9fe90820c": [
+                    {
+                      "input": "92493214a1",
+                      "transform": null
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:return",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "40c02762ac85456ab4388ce9fe90820c",
+              "branches": {},
+              "node": {
+                "key": "return",
+                "data": {
+                  "name": "Return"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "return",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": true,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 90000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Return",
+                    "description": "End the Flow and return values to the caller of the Flow."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "03dca17e86": {
+                        "id": "03dca17e86",
+                        "group": null,
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      },
+                      "92493214a1": {
+                        "id": "92493214a1",
+                        "group": null,
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "a87fd55d95": {
+                        "id": "a87fd55d95",
+                        "group": null,
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      },
+                      "c1b50436ca": {
+                        "id": "c1b50436ca",
+                        "group": null,
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "runtime": {}
+                }
+              },
+              "pins": {}
+            }
+          ],
+          "model": {},
+          "orderings": {
+            "seq0": [
+              "5a0fb56d3f2a4812a116e26a79cf562f",
+              "e30b0c278d2e49b8834025c32aa61631"
+            ],
+            "seq1": [
+              "e30b0c278d2e49b8834025c32aa61631",
+              "32984208b5694324a71384845e7b47cf"
+            ],
+            "seq2": [
+              "32984208b5694324a71384845e7b47cf",
+              "40c02762ac85456ab4388ce9fe90820c"
+            ]
+          },
+          "cron": {},
+          "security_level": null,
+          "log": true,
+          "inheritLog": true,
+          "scheduled": false,
+          "group": "1d661389-c35a-457f-96c0-a065b8f030fa",
+          "templateName": null,
+          "connector_method_meta": {
+            "inputs": {},
+            "outputs": {},
+            "options": {}
+          },
+          "monitor_flo": false,
+          "pins": {}
+        }
+      },
+      "a5a3c6a6-ab97-4e92-9fa8-aadfbffd48bc": {
+        "id": "a5a3c6a6-ab97-4e92-9fa8-aadfbffd48bc",
+        "name": "Infosweb activate user",
+        "description": "POST /Banesco/integracion/api/v1/usuarios/activar with a JSON body containing nombre_usuario.",
+        "data": {
+          "id": null,
+          "uuid": "a5a3c6a6-ab97-4e92-9fa8-aadfbffd48bc",
+          "display": {
+            "preview": [
+              {
+                "module": "control",
+                "name": "callable",
+                "kernel": true
+              },
+              {
+                "module": "httpfunctions",
+                "name": "raw",
+                "kernel": false
+              },
+              {
+                "module": "control",
+                "name": "return",
+                "kernel": true
+              },
+              {
+                "module": "control",
+                "name": "comment",
+                "kernel": true
+              }
+            ],
+            "eventConnecterName": "Helper Flow",
+            "isCallable": true,
+            "isPublishable": false
+          },
+          "tree": {
+            "id": 3,
+            "name": "empty",
+            "description": "This flow has been build w/o a tree and uses the newer, async, Addressing module."
+          },
+          "methods": [
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:callable",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "4b95afa391314b6e952a987266eb6437",
+              "branches": {},
+              "node": {
+                "key": "callable",
+                "data": {
+                  "name": "Helper Flow"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "callable",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": true,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 30000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Helper Flow",
+                    "description": "Start a Flow that executes on-demand, i.e. called by another Flow or via the Invoke API."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "groupRules": {
+                      "body": {
+                        "type": "object",
+                        "reserved": {},
+                        "extensible": true
+                      },
+                      "headers": {
+                        "type": "object",
+                        "reserved": {
+                          "Content-Type": "string"
+                        },
+                        "extensible": true
+                      },
+                      "query": {
+                        "type": "object",
+                        "reserved": {},
+                        "extensible": true
+                      }
+                    },
+                    "data": {
+                      "OOG6lzGVq7": {
+                        "id": "OOG6lzGVq7",
+                        "group": "context",
+                        "key": "index",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Index",
+                          "index": 0
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "6Oji6L8SWA": {
+                        "id": "6Oji6L8SWA",
+                        "group": "context",
+                        "key": "parent",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "id": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "name": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "execution_id": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Caller",
+                          "collapsed": true,
+                          "index": 1
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "edSqYLosxg": {
+                        "id": "edSqYLosxg",
+                        "group": "context",
+                        "key": "error",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "message": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "flo": {
+                              "type": "number",
+                              "collection": false
+                            },
+                            "execution": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Error",
+                          "collapsed": true,
+                          "index": 2
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "QvcNsoJRE1": {
+                        "id": "QvcNsoJRE1",
+                        "group": "context",
+                        "key": "execution_id",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Execution ID",
+                          "index": 3
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "bbe78ddd75": {
+                        "id": "bbe78ddd75",
+                        "group": null,
+                        "key": "Nombre Usuario",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "custom": true,
+                          "description": "nombre_usuario to activate"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      },
+                      "288c204db8": {
+                        "id": "288c204db8",
+                        "group": null,
+                        "key": "Access Token",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 5,
+                          "custom": true,
+                          "description": "Bearer token value"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      },
+                      "80cf5e2000": {
+                        "id": "80cf5e2000",
+                        "group": null,
+                        "key": "Base URL",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 6,
+                          "custom": true,
+                          "description": "Root Infosweb endpoint, e.g. https://api.example.com"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "fiurZDJ7uP": {
+                        "id": "fiurZDJ7uP",
+                        "group": "context",
+                        "key": "index",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Index",
+                          "index": 0
+                        }
+                      },
+                      "tmrF3b_ygz": {
+                        "id": "tmrF3b_ygz",
+                        "group": "context",
+                        "key": "parent",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "id": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "name": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "execution_id": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Caller",
+                          "collapsed": true,
+                          "index": 1
+                        }
+                      },
+                      "C0qNbq7B73": {
+                        "id": "C0qNbq7B73",
+                        "group": "context",
+                        "key": "error",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "message": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "flo": {
+                              "type": "number",
+                              "collection": false
+                            },
+                            "execution": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Error",
+                          "collapsed": true,
+                          "index": 2
+                        }
+                      },
+                      "-zDZqtxL0u": {
+                        "id": "-zDZqtxL0u",
+                        "group": "context",
+                        "key": "execution_id",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Execution ID",
+                          "index": 3
+                        }
+                      },
+                      "38e1d332d1": {
+                        "id": "38e1d332d1",
+                        "group": null,
+                        "key": "Nombre Usuario",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "custom": true
+                        },
+                        "_used": true
+                      },
+                      "5ae7aefa7e": {
+                        "id": "5ae7aefa7e",
+                        "group": null,
+                        "key": "Access Token",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 5,
+                          "custom": true
+                        },
+                        "_used": true
+                      }
+                    },
+                    "groupRules": {
+                      "context": {
+                        "extensible": false
+                      }
+                    }
+                  },
+                  "runtime": {}
+                }
+              },
+              "pins": {}
+            },
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:comment",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "c59526ccbdcb40259e45f6f326a9cc78",
+              "branches": {},
+              "node": {
+                "key": "comment",
+                "data": {
+                  "name": "Comment"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "comment",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": false,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 90000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Comment",
+                    "description": "Leave a comment."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": false,
+                    "data": {}
+                  },
+                  "outputs": {
+                    "extensible": false,
+                    "data": {}
+                  },
+                  "runtime": {},
+                  "display": {},
+                  "comments": {
+                    "title": "Infosweb activate user",
+                    "markdown": "POST /Banesco/integracion/api/v1/usuarios/activar with a JSON body containing nombre_usuario."
+                  }
+                }
+              },
+              "pins": {}
+            },
+            {
+              "joins": {},
+              "address": "root:channels:http:httpfunctions:1.0.24:raw",
+              "parents": {
+                "version": {
+                  "address": "root:channels:http:httpfunctions:1.0.24",
+                  "key": "1.0.24",
+                  "data": {
+                    "name": "1.0.24",
+                    "id": 184
+                  }
+                },
+                "channel": {
+                  "address": "root:channels:http:httpfunctions",
+                  "key": "httpfunctions",
+                  "data": {
+                    "name": "httpfunctions",
+                    "id": 72
+                  }
+                }
+              },
+              "uuid": "d6e9aa4fc31f41b59f6783b758f22cd7",
+              "branches": {},
+              "node": {
+                "key": "raw",
+                "data": {
+                  "name": "Raw Request"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "raw",
+                  "executable": true,
+                  "displayed": true,
+                  "async": true,
+                  "cooperative": false,
+                  "mirrored": false,
+                  "compat": false,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 30000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish",
+                      "delay": 120000,
+                      "retry": 3
+                    }
+                  },
+                  "metadata": {
+                    "id": 9515,
+                    "name": "Raw Request",
+                    "description": "POST /Banesco/integracion/api/v1/usuarios/activar with a JSON body containing nombre_usuario."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": 65,
+                  "inputs": {
+                    "extensible": false,
+                    "rules": {},
+                    "groupRules": {
+                      "Request": {
+                        "extensible": false,
+                        "reserved": {},
+                        "index": 0,
+                        "type": "object"
+                      }
+                    },
+                    "data": {
+                      "16b2040861": {
+                        "id": "16b2040861",
+                        "group": "Request",
+                        "key": "URL",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "{{Base URL}}/Banesco/integracion/api/v1/usuarios/activar",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "optional": false
+                        },
+                        "flags": "d"
+                      },
+                      "bd3071e030": {
+                        "id": "bd3071e030",
+                        "group": "Request",
+                        "key": "Method",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "POST",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "optional": false,
+                          "type": "list",
+                          "choices": [
+                            {
+                              "label": "GET",
+                              "value": "GET"
+                            },
+                            {
+                              "label": "POST",
+                              "value": "POST"
+                            },
+                            {
+                              "label": "PUT",
+                              "value": "PUT"
+                            },
+                            {
+                              "label": "PATCH",
+                              "value": "PATCH"
+                            },
+                            {
+                              "label": "DELETE",
+                              "value": "DELETE"
+                            }
+                          ]
+                        },
+                        "flags": "d"
+                      },
+                      "82f8278d8c": {
+                        "id": "82f8278d8c",
+                        "group": "Request",
+                        "key": "Query",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "object",
+                          "collection": false,
+                          "data": {},
+                          "available": [
+                            "string",
+                            "object"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 2,
+                          "optional": false
+                        },
+                        "flags": "d"
+                      },
+                      "f7e4c93e4d": {
+                        "id": "f7e4c93e4d",
+                        "group": "Request",
+                        "key": "Headers",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": {
+                            "Authorization": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "Content-Type": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": {
+                            "Authorization": "Bearer {{Access Token}}",
+                            "Content-Type": "application/json"
+                          },
+                          "available": [
+                            "object"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 3,
+                          "optional": false,
+                          "displayname": "Headers"
+                        },
+                        "flags": "d"
+                      },
+                      "d1a44f6263": {
+                        "id": "d1a44f6263",
+                        "group": "Request",
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "{\"nombre_usuario\":\"{{Nombre Usuario}}\"}",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "optional": false,
+                          "displayname": "Body"
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": false,
+                    "rules": {},
+                    "groupRules": {
+                      "Response": {
+                        "extensible": false,
+                        "reserved": {},
+                        "index": 0,
+                        "type": "object"
+                      }
+                    },
+                    "data": {
+                      "ab62fca936": {
+                        "id": "ab62fca936",
+                        "group": "Response",
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "number"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Status Code",
+                          "index": 0
+                        }
+                      },
+                      "c30f6776fa": {
+                        "id": "c30f6776fa",
+                        "group": "Response",
+                        "key": "Headers",
+                        "value": {
+                          "error": false,
+                          "type": "object",
+                          "collection": false,
+                          "data": {},
+                          "available": [
+                            "object"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Headers",
+                          "index": 1
+                        }
+                      },
+                      "cde6188975": {
+                        "id": "cde6188975",
+                        "group": "Response",
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Body",
+                          "index": 2
+                        }
+                      }
+                    }
+                  },
+                  "runtime": {},
+                  "display": {},
+                  "comments": "POST /Banesco/integracion/api/v1/usuarios/activar with a JSON body containing nombre_usuario.",
+                  "enableNewMetadata": true
+                },
+                "display": {},
+                "comments": "POST /Banesco/integracion/api/v1/usuarios/activar with a JSON body containing nombre_usuario."
+              },
+              "pins": {
+                "ab62fca936": {
+                  "a2db50c8c3414d4d9b5794d787500044": [
+                    {
+                      "input": "25edb103ab",
+                      "transform": null
+                    }
+                  ]
+                },
+                "cde6188975": {
+                  "a2db50c8c3414d4d9b5794d787500044": [
+                    {
+                      "input": "023f7a7d6c",
+                      "transform": null
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:return",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "a2db50c8c3414d4d9b5794d787500044",
+              "branches": {},
+              "node": {
+                "key": "return",
+                "data": {
+                  "name": "Return"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "return",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": true,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 90000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Return",
+                    "description": "End the Flow and return values to the caller of the Flow."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "25edb103ab": {
+                        "id": "25edb103ab",
+                        "group": null,
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      },
+                      "023f7a7d6c": {
+                        "id": "023f7a7d6c",
+                        "group": null,
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "d7322cd71f": {
+                        "id": "d7322cd71f",
+                        "group": null,
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      },
+                      "b359e36af5": {
+                        "id": "b359e36af5",
+                        "group": null,
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "runtime": {}
+                }
+              },
+              "pins": {}
+            }
+          ],
+          "model": {},
+          "orderings": {
+            "seq0": [
+              "4b95afa391314b6e952a987266eb6437",
+              "c59526ccbdcb40259e45f6f326a9cc78"
+            ],
+            "seq1": [
+              "c59526ccbdcb40259e45f6f326a9cc78",
+              "d6e9aa4fc31f41b59f6783b758f22cd7"
+            ],
+            "seq2": [
+              "d6e9aa4fc31f41b59f6783b758f22cd7",
+              "a2db50c8c3414d4d9b5794d787500044"
+            ]
+          },
+          "cron": {},
+          "security_level": null,
+          "log": true,
+          "inheritLog": true,
+          "scheduled": false,
+          "group": "1d661389-c35a-457f-96c0-a065b8f030fa",
+          "templateName": null,
+          "connector_method_meta": {
+            "inputs": {},
+            "outputs": {},
+            "options": {}
+          },
+          "monitor_flo": false,
+          "pins": {}
+        }
+      },
+      "c4493875-2590-4d40-99ed-9fa65cb793be": {
+        "id": "c4493875-2590-4d40-99ed-9fa65cb793be",
+        "name": "Infosweb deactivate user",
+        "description": "POST /Banesco/integracion/api/v1/usuarios/desactivar with a JSON body containing nombre_usuario.",
+        "data": {
+          "id": null,
+          "uuid": "c4493875-2590-4d40-99ed-9fa65cb793be",
+          "display": {
+            "preview": [
+              {
+                "module": "control",
+                "name": "callable",
+                "kernel": true
+              },
+              {
+                "module": "httpfunctions",
+                "name": "raw",
+                "kernel": false
+              },
+              {
+                "module": "control",
+                "name": "return",
+                "kernel": true
+              },
+              {
+                "module": "control",
+                "name": "comment",
+                "kernel": true
+              }
+            ],
+            "eventConnecterName": "Helper Flow",
+            "isCallable": true,
+            "isPublishable": false
+          },
+          "tree": {
+            "id": 3,
+            "name": "empty",
+            "description": "This flow has been build w/o a tree and uses the newer, async, Addressing module."
+          },
+          "methods": [
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:callable",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "b901adccab9042f083d0a247c1ab8e03",
+              "branches": {},
+              "node": {
+                "key": "callable",
+                "data": {
+                  "name": "Helper Flow"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "callable",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": true,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 30000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Helper Flow",
+                    "description": "Start a Flow that executes on-demand, i.e. called by another Flow or via the Invoke API."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "groupRules": {
+                      "body": {
+                        "type": "object",
+                        "reserved": {},
+                        "extensible": true
+                      },
+                      "headers": {
+                        "type": "object",
+                        "reserved": {
+                          "Content-Type": "string"
+                        },
+                        "extensible": true
+                      },
+                      "query": {
+                        "type": "object",
+                        "reserved": {},
+                        "extensible": true
+                      }
+                    },
+                    "data": {
+                      "OOG6lzGVq7": {
+                        "id": "OOG6lzGVq7",
+                        "group": "context",
+                        "key": "index",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Index",
+                          "index": 0
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "6Oji6L8SWA": {
+                        "id": "6Oji6L8SWA",
+                        "group": "context",
+                        "key": "parent",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "id": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "name": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "execution_id": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Caller",
+                          "collapsed": true,
+                          "index": 1
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "edSqYLosxg": {
+                        "id": "edSqYLosxg",
+                        "group": "context",
+                        "key": "error",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "message": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "flo": {
+                              "type": "number",
+                              "collection": false
+                            },
+                            "execution": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Error",
+                          "collapsed": true,
+                          "index": 2
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "QvcNsoJRE1": {
+                        "id": "QvcNsoJRE1",
+                        "group": "context",
+                        "key": "execution_id",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Execution ID",
+                          "index": 3
+                        },
+                        "required": false,
+                        "flags": "d"
+                      },
+                      "068e3093e4": {
+                        "id": "068e3093e4",
+                        "group": null,
+                        "key": "Nombre Usuario",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "custom": true,
+                          "description": "nombre_usuario to deactivate"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      },
+                      "781afef241": {
+                        "id": "781afef241",
+                        "group": null,
+                        "key": "Access Token",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 5,
+                          "custom": true,
+                          "description": "Bearer token value"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      },
+                      "dd7f260253": {
+                        "id": "dd7f260253",
+                        "group": null,
+                        "key": "Base URL",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 6,
+                          "custom": true,
+                          "description": "Root Infosweb endpoint, e.g. https://api.example.com"
+                        },
+                        "required": false,
+                        "flags": "d",
+                        "_used": true
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "fiurZDJ7uP": {
+                        "id": "fiurZDJ7uP",
+                        "group": "context",
+                        "key": "index",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Index",
+                          "index": 0
+                        }
+                      },
+                      "tmrF3b_ygz": {
+                        "id": "tmrF3b_ygz",
+                        "group": "context",
+                        "key": "parent",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "id": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "name": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "execution_id": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Caller",
+                          "collapsed": true,
+                          "index": 1
+                        }
+                      },
+                      "C0qNbq7B73": {
+                        "id": "C0qNbq7B73",
+                        "group": "context",
+                        "key": "error",
+                        "value": {
+                          "error": false,
+                          "type": {
+                            "message": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "method": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "flo": {
+                              "type": "number",
+                              "collection": false
+                            },
+                            "execution": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Error",
+                          "collapsed": true,
+                          "index": 2
+                        }
+                      },
+                      "-zDZqtxL0u": {
+                        "id": "-zDZqtxL0u",
+                        "group": "context",
+                        "key": "execution_id",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": null,
+                          "available": []
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Execution ID",
+                          "index": 3
+                        }
+                      },
+                      "36dac6a93d": {
+                        "id": "36dac6a93d",
+                        "group": null,
+                        "key": "Nombre Usuario",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "custom": true
+                        },
+                        "_used": true
+                      },
+                      "8946fd8421": {
+                        "id": "8946fd8421",
+                        "group": null,
+                        "key": "Access Token",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 5,
+                          "custom": true
+                        },
+                        "_used": true
+                      }
+                    },
+                    "groupRules": {
+                      "context": {
+                        "extensible": false
+                      }
+                    }
+                  },
+                  "runtime": {}
+                }
+              },
+              "pins": {}
+            },
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:comment",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "14484485aa7e462ebb95cf4c7994dc83",
+              "branches": {},
+              "node": {
+                "key": "comment",
+                "data": {
+                  "name": "Comment"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "comment",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": false,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 90000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Comment",
+                    "description": "Leave a comment."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": false,
+                    "data": {}
+                  },
+                  "outputs": {
+                    "extensible": false,
+                    "data": {}
+                  },
+                  "runtime": {},
+                  "display": {},
+                  "comments": {
+                    "title": "Infosweb deactivate user",
+                    "markdown": "POST /Banesco/integracion/api/v1/usuarios/desactivar with a JSON body containing nombre_usuario."
+                  }
+                }
+              },
+              "pins": {}
+            },
+            {
+              "joins": {},
+              "address": "root:channels:http:httpfunctions:1.0.24:raw",
+              "parents": {
+                "version": {
+                  "address": "root:channels:http:httpfunctions:1.0.24",
+                  "key": "1.0.24",
+                  "data": {
+                    "name": "1.0.24",
+                    "id": 184
+                  }
+                },
+                "channel": {
+                  "address": "root:channels:http:httpfunctions",
+                  "key": "httpfunctions",
+                  "data": {
+                    "name": "httpfunctions",
+                    "id": 72
+                  }
+                }
+              },
+              "uuid": "1bc2d9f22b0b42759e4afff3e2395f5a",
+              "branches": {},
+              "node": {
+                "key": "raw",
+                "data": {
+                  "name": "Raw Request"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "raw",
+                  "executable": true,
+                  "displayed": true,
+                  "async": true,
+                  "cooperative": false,
+                  "mirrored": false,
+                  "compat": false,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 30000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish",
+                      "delay": 120000,
+                      "retry": 3
+                    }
+                  },
+                  "metadata": {
+                    "id": 9515,
+                    "name": "Raw Request",
+                    "description": "POST /Banesco/integracion/api/v1/usuarios/desactivar with a JSON body containing nombre_usuario."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": 65,
+                  "inputs": {
+                    "extensible": false,
+                    "rules": {},
+                    "groupRules": {
+                      "Request": {
+                        "extensible": false,
+                        "reserved": {},
+                        "index": 0,
+                        "type": "object"
+                      }
+                    },
+                    "data": {
+                      "39f6c329c2": {
+                        "id": "39f6c329c2",
+                        "group": "Request",
+                        "key": "URL",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "{{Base URL}}/Banesco/integracion/api/v1/usuarios/desactivar",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "optional": false
+                        },
+                        "flags": "d"
+                      },
+                      "7a568eb4b0": {
+                        "id": "7a568eb4b0",
+                        "group": "Request",
+                        "key": "Method",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "POST",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "optional": false,
+                          "type": "list",
+                          "choices": [
+                            {
+                              "label": "GET",
+                              "value": "GET"
+                            },
+                            {
+                              "label": "POST",
+                              "value": "POST"
+                            },
+                            {
+                              "label": "PUT",
+                              "value": "PUT"
+                            },
+                            {
+                              "label": "PATCH",
+                              "value": "PATCH"
+                            },
+                            {
+                              "label": "DELETE",
+                              "value": "DELETE"
+                            }
+                          ]
+                        },
+                        "flags": "d"
+                      },
+                      "ab98cd038e": {
+                        "id": "ab98cd038e",
+                        "group": "Request",
+                        "key": "Query",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "object",
+                          "collection": false,
+                          "data": {},
+                          "available": [
+                            "string",
+                            "object"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 2,
+                          "optional": false
+                        },
+                        "flags": "d"
+                      },
+                      "be60e8e296": {
+                        "id": "be60e8e296",
+                        "group": "Request",
+                        "key": "Headers",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": {
+                            "Authorization": {
+                              "type": "string",
+                              "collection": false
+                            },
+                            "Content-Type": {
+                              "type": "string",
+                              "collection": false
+                            }
+                          },
+                          "collection": false,
+                          "data": {
+                            "Authorization": "Bearer {{Access Token}}",
+                            "Content-Type": "application/json"
+                          },
+                          "available": [
+                            "object"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 3,
+                          "optional": false,
+                          "displayname": "Headers"
+                        },
+                        "flags": "d"
+                      },
+                      "1d23e93a9a": {
+                        "id": "1d23e93a9a",
+                        "group": "Request",
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "{\"nombre_usuario\":\"{{Nombre Usuario}}\"}",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 4,
+                          "optional": false,
+                          "displayname": "Body"
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": false,
+                    "rules": {},
+                    "groupRules": {
+                      "Response": {
+                        "extensible": false,
+                        "reserved": {},
+                        "index": 0,
+                        "type": "object"
+                      }
+                    },
+                    "data": {
+                      "2c57f6fe8c": {
+                        "id": "2c57f6fe8c",
+                        "group": "Response",
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "number"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Status Code",
+                          "index": 0
+                        }
+                      },
+                      "85deb749ea": {
+                        "id": "85deb749ea",
+                        "group": "Response",
+                        "key": "Headers",
+                        "value": {
+                          "error": false,
+                          "type": "object",
+                          "collection": false,
+                          "data": {},
+                          "available": [
+                            "object"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Headers",
+                          "index": 1
+                        }
+                      },
+                      "0808c6534e": {
+                        "id": "0808c6534e",
+                        "group": "Response",
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "displayname": "Body",
+                          "index": 2
+                        }
+                      }
+                    }
+                  },
+                  "runtime": {},
+                  "display": {},
+                  "comments": "POST /Banesco/integracion/api/v1/usuarios/desactivar with a JSON body containing nombre_usuario.",
+                  "enableNewMetadata": true
+                },
+                "display": {},
+                "comments": "POST /Banesco/integracion/api/v1/usuarios/desactivar with a JSON body containing nombre_usuario."
+              },
+              "pins": {
+                "2c57f6fe8c": {
+                  "a5ba6c0662044665ba837cfe81ca8a3c": [
+                    {
+                      "input": "c50aeea1e7",
+                      "transform": null
+                    }
+                  ]
+                },
+                "0808c6534e": {
+                  "a5ba6c0662044665ba837cfe81ca8a3c": [
+                    {
+                      "input": "dd48af3a15",
+                      "transform": null
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "joins": {},
+              "address": "root:kernel:control:0.0.1:return",
+              "parents": {
+                "version": {
+                  "address": "root:kernel:control:0.0.1",
+                  "key": "0.0.1",
+                  "data": {
+                    "name": "0.0.1"
+                  }
+                },
+                "channel": {
+                  "address": "root:kernel:control",
+                  "key": "control",
+                  "data": {
+                    "name": "control"
+                  }
+                }
+              },
+              "uuid": "a5ba6c0662044665ba837cfe81ca8a3c",
+              "branches": {},
+              "node": {
+                "key": "return",
+                "data": {
+                  "name": "Return"
+                },
+                "model": {
+                  "type": "method",
+                  "_v": 2,
+                  "key": "return",
+                  "executable": false,
+                  "displayed": true,
+                  "async": false,
+                  "cooperative": false,
+                  "mirrored": true,
+                  "inlined": false,
+                  "dependencies": [],
+                  "timeout": 90000,
+                  "idempotent": false,
+                  "monitor": false,
+                  "webhook": false,
+                  "webhookList": false,
+                  "webhookConditions": false,
+                  "mobile": false,
+                  "hooks": {},
+                  "policy": {
+                    "error": {
+                      "type": "finish"
+                    }
+                  },
+                  "metadata": {
+                    "id": null,
+                    "name": "Return",
+                    "description": "End the Flow and return values to the caller of the Flow."
+                  },
+                  "meta": {},
+                  "config": null,
+                  "partnerChannelKeys": null,
+                  "inputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "c50aeea1e7": {
+                        "id": "c50aeea1e7",
+                        "group": null,
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      },
+                      "dd48af3a15": {
+                        "id": "dd48af3a15",
+                        "group": null,
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "required": false,
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "outputs": {
+                    "extensible": true,
+                    "rules": {
+                      "*": {
+                        "types": [
+                          "*"
+                        ],
+                        "collection": "*"
+                      }
+                    },
+                    "data": {
+                      "26e5cfdba4": {
+                        "id": "26e5cfdba4",
+                        "group": null,
+                        "key": "Status Code",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "number",
+                          "collection": false,
+                          "data": 0,
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 0,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      },
+                      "fdd77798b9": {
+                        "id": "fdd77798b9",
+                        "group": null,
+                        "key": "Body",
+                        "value": {
+                          "error": false,
+                          "proxy": false,
+                          "check": false,
+                          "type": "string",
+                          "collection": false,
+                          "data": "",
+                          "available": [
+                            "string",
+                            "number",
+                            "boolean",
+                            "Date",
+                            "Array",
+                            "object",
+                            "file",
+                            "flo",
+                            "folder"
+                          ]
+                        },
+                        "ref": false,
+                        "metadata": {
+                          "index": 1,
+                          "custom": true
+                        },
+                        "flags": "d"
+                      }
+                    }
+                  },
+                  "runtime": {}
+                }
+              },
+              "pins": {}
+            }
+          ],
+          "model": {},
+          "orderings": {
+            "seq0": [
+              "b901adccab9042f083d0a247c1ab8e03",
+              "14484485aa7e462ebb95cf4c7994dc83"
+            ],
+            "seq1": [
+              "14484485aa7e462ebb95cf4c7994dc83",
+              "1bc2d9f22b0b42759e4afff3e2395f5a"
+            ],
+            "seq2": [
+              "1bc2d9f22b0b42759e4afff3e2395f5a",
+              "a5ba6c0662044665ba837cfe81ca8a3c"
+            ]
+          },
+          "cron": {},
+          "security_level": null,
+          "log": true,
+          "inheritLog": true,
+          "scheduled": false,
+          "group": "1d661389-c35a-457f-96c0-a065b8f030fa",
+          "templateName": null,
+          "connector_method_meta": {
+            "inputs": {},
+            "outputs": {},
+            "options": {}
+          },
+          "monitor_flo": false,
+          "pins": {}
+        }
+      }
+  },
+  "configs": {},
+  "tables": {},
+    "groups": {
+      "1d661389-c35a-457f-96c0-a065b8f030fa": {
+        "id": "1d661389-c35a-457f-96c0-a065b8f030fa",
+        "data": {
+          "name": "Infosweb API helpers",
+          "description": "Flows that call Infosweb endpoints via HTTP connector.",
+          "media_uri": "",
+          "path": ""
+        }
+      }
+    }
+  }
+}
