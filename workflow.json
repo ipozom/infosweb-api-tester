@@ -1,0 +1,49 @@
+{
+  "name": "Activate & Deactivate Accounts by Profile Date",
+  "description": "Automatically activate or deactivate Okta users when their profile activation or deactivation date equals the current day.",
+  "categories": ["Lifecycle Management"],
+  "connectors": [
+    { "name": "Okta", "slug": "okta" },
+    { "name": "List", "slug": "list" },
+    { "name": "Date", "slug": "date" }
+  ],
+  "workflow": {
+    "file": "workflow.flopack",
+    "hash": "sha512:2245778547cc2114c50db8d397ee8dcf8c11b3f0f5cd71aff97be49185d5ec42830e9f9513ed20435f378d82cee74a64be57bdd43aaadea62f6e9285d9ab4a48"
+  },
+  "documentation": {
+    "readme": "README.md"
+  },
+  "flows": [
+    {
+      "id": "8bc37173-3da8-4537-93be-2d4ad5d71440",
+      "name": "1A Find users to activate by profile date",
+      "description": "Scheduled flow that finds staged users whose profile activation date equals today and routes each to the activate helper.",
+      "type": "scheduled",
+      "helper": false
+    },
+    {
+      "id": "2af246d4-127c-4f54-a0f3-3f9ceefe9734",
+      "name": "1B Activate account helper",
+      "description": "Helper flow that activates a user by ID or login and returns the response status.",
+      "type": "helper",
+      "helper": true
+    },
+    {
+      "id": "7ca77024-a0e4-44e3-ad15-88f0699efd0f",
+      "name": "2A Find users to deactivate by profile date",
+      "description": "Scheduled flow that finds active users whose profile deactivation date equals today and routes each to the deactivate helper.",
+      "type": "scheduled",
+      "helper": false
+    },
+    {
+      "id": "c1ee89e1-2215-4772-ace3-bd9555102e24",
+      "name": "2B Deactivate account helper",
+      "description": "Helper flow that deactivates a user by ID or login and returns the response status.",
+      "type": "helper",
+      "helper": true
+    }
+  ],
+  "lastUpdated": "2025-11-08",
+  "metadataVersion": "1.0"
+}
